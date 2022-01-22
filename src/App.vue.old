@@ -1,0 +1,40 @@
+<template>
+<div id="App">
+  <h2>{{title}}</h2>
+
+  <div>
+    <ol>
+      <li v-for="(item,i) in todos" v-bind:key="i"> 
+       <h5> {{ item.title }} </h5>
+      </li>
+  </ol>
+  </div>
+</div>
+</template>
+
+<script>
+
+import axios from "axios"
+
+export default {
+  name: 'App',
+
+  data () {
+        return {
+          title: 'Vodafone Ghana',
+          todos: [],
+          loading: true,
+          errored: false
+        };  
+  },
+  mounted(){
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+     .then(response => (this.todos = response.data))
+     .catch(error => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => this.loading = false)
+  }
+};
+</script>

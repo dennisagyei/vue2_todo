@@ -1,5 +1,5 @@
 <template>
-  <div class="Todo" >
+  <div class="Todo">
     <v-form ref="form">
        <v-text-field
             class="pa-3"
@@ -183,6 +183,20 @@ export default {
 
         deletePrompt(){
         this.$refs.DeleteDlg.open()
+      },
+
+      async delRecord() {
+        if (
+          await this.$refs.confirm.open(
+            "Confirm",
+            "Are you sure you want to delete this record?"
+          )
+        ) {
+          this.deleteRecord();
+        }
+      },
+      deleteRecord() {
+        console.log("Record deleted.");
       },
     },
     
