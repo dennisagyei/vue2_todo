@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div class="Todo">
+=======
+  <div class="Todo" >
+>>>>>>> 9c273870934db634b5457cb90a184a18047f253f
     <v-form ref="form">
        <v-text-field
             class="pa-3"
@@ -184,6 +188,7 @@ export default {
         deletePrompt(){
         this.$refs.DeleteDlg.open()
       },
+<<<<<<< HEAD
 
       async delRecord() {
         if (
@@ -198,6 +203,8 @@ export default {
       deleteRecord() {
         console.log("Record deleted.");
       },
+=======
+>>>>>>> 9c273870934db634b5457cb90a184a18047f253f
     },
     
     created(){
